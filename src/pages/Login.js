@@ -5,7 +5,7 @@ const Login=props=>{
     return(
         <SafeAreaView>
         <View>
-        <Text>LoginPage</Text>
+        <Text>LoginPageDeneme</Text>
         </View>
         </SafeAreaView>
     )
