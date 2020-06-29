@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "669885111571",
+    "firebase_url": "https://postapp-a7faf.firebaseio.com",
+    "project_id": "postapp-a7faf",
+    "storage_bucket": "postapp-a7faf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669885111571:android:1232c7166db1721a104ee6",
+        "android_client_info": {
+          "package_name": "com.postapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669885111571-dco100j7vfe420eee8gp554liqs5822u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAX6agS9qOdUniONpZJgkD-ZQOryzq5HI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669885111571-dco100j7vfe420eee8gp554liqs5822u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
