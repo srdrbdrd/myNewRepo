@@ -18,6 +18,7 @@ const Login=props=>{
         try {
             await auth().signInWithEmailAndPassword(usermail,password)
             props.navigation.navigate("Main")
+            AsyncStorage.setItem('@USER_ID', auth().currentUser.uid) //Async ile kullanıcı giriş id set etme.
         } catch (error) {
             Alert.alert("App","Bir hata oluştu.")
         }
