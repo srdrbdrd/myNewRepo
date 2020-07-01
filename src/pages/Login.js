@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {SafeAreaView,View,Text,TextInput,TouchableOpacity,Alert} from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 import auth from '@react-native-firebase/auth';
 import styles from '../styles'
 
