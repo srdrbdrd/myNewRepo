@@ -20,13 +20,17 @@ const Posts=props=>{
     useEffect(() => { //Veri görüntüleme
         database()
             .ref(`/Posts`) 
-            .once('value')
-            .then(response => {
-                if (response.val() != null) {
-                    let responseList = Object.values(response.val());
-                    setList(responseList);
-                }
+            .on('value',function(response){
+                let responseList = Object.values(response.val());
+                setList(responseList);
             })
+            // .once('value')
+            // .then(response => {
+            //     if (response.val() != null) {
+            //         let responseList = Object.values(response.val());
+            //         setList(responseList);
+            //     }
+            // })
     }, [])
 
 
