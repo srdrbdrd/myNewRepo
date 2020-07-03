@@ -1,7 +1,7 @@
 import {createContext} from 'react'
 
 export const initialState={
-    user:{},
+    user: "",
     post:{}
 }
 export default Context=createContext(initialState)
