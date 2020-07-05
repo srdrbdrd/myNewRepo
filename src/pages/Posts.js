@@ -65,7 +65,7 @@ const Posts=props=>{
 
     return(
         <SafeAreaView style = {{flex:1}}>
-        <View style = {{flex:1}}>
+        <View style = {{flex:1,alignItems:'center'}}>
         <FlatList 
             keyExtractor={(_, index) => index.toString()}
             data = {list}

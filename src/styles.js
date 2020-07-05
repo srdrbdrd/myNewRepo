@@ -30,10 +30,11 @@ const styles = {
     post: StyleSheet.create({
         container:{
             backgroundColor:'#c8e6c9',
-            margin:5,
+            margin:10,
             padding:10,
             borderRadius:10,
-            width:Dimensions.get('window').width/2
+            width:Dimensions.get('window').width*0.8
+            
         }
     })
 }
