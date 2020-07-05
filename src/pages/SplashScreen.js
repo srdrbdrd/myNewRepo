@@ -15,7 +15,7 @@ const SplashScreen = (props) => {
             else
             
             setTimeout(() => {props.navigation.navigate("Main")
-            }, 2000); // 2 saniye delay ile açılmasını sağlıyor.
+            }, 1200); // 2 saniye delay ile açılmasını sağlıyor.
                 
         })
     },[])
@@ -23,7 +23,7 @@ const SplashScreen = (props) => {
 
     return (
         <SafeAreaView style = {{flex:1,justifyContent:'center',alignItems:'center'}}>
-            <Text style = {{fontSize:50}}>Sa</Text>
+            <Text style = {{fontSize:50,color:'#004a00'}}>Hoşgeldiniz!</Text>
         </SafeAreaView>
     )
 }

@@ -15,21 +15,25 @@ const SignUp=props=>{
     const setPassRep=text=>setUserpassrep(text)
 
     const signUser=async()=>{
-        if(password===userpassRep){
-            try {
-                await auth().createUserWithEmailAndPassword(usermail,password)
-                props.navigation.goBack()
-            } catch (error) {
-                Alert.alert("App","Bir hata oluştu, lütfen bilgileri kontrol edin.")
+        if (usermail  && password) {
+            if(password===userpassRep){
+                try {
+                    await auth().createUserWithEmailAndPassword(usermail,password)
+                    props.navigation.goBack()
+                } catch (error) {
+                    Alert.alert("App","Bir hata oluştu, lütfen bilgileri kontrol edin.")
+                }
             }
-        }
-        else{
-            Alert.alert("App","Şifreler uyuşmuyor!")
-        }
+            else{
+                Alert.alert("App","Şifreler uyuşmuyor!")
+            }}
+            else{
+                Alert.alert("Lütfen gerekli alanları doldurunuz")
+            }
     }
    
     return(
-        <SafeAreaView style = {{flex:1}}>
+        <SafeAreaView style = {{flex:1,justifyContent:'center',alignItems:'center'}}>
             <View style = {{flex:1,justifyContent:'center'}}>
                 <TextInput
                     style = {styles.login.input}
@@ -57,12 +61,12 @@ const SignUp=props=>{
 
 
                 <View style = {{marginTop: 20}}>
-                    <TouchableOpacity style = {[styles.login.buttonContainer,{backgroundColor:'#bbdefb'}]} onPress={signUser}>
-                        <Text>Kayıt Ol</Text>
+                    <TouchableOpacity style = {styles.login.buttonContainer} onPress={signUser}>
+                        <Text style = {{color:'white'}}>Kayıt Ol</Text>
                     </TouchableOpacity> 
 
                     <TouchableOpacity style = {styles.login.buttonContainer} onPress ={() => props.navigation.goBack()}>
-                        <Text>Vazgeç</Text>
+                        <Text style = {{color:'white'}}>Vazgeç</Text>
                     </TouchableOpacity> 
 
                     

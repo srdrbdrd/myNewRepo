@@ -1,9 +1,10 @@
 import React,{useState, useEffect, useContext} from 'react'
-import {SafeAreaView,View,Text,FlatList,TextInput, Button} from 'react-native'
+import {SafeAreaView,View,Text,FlatList,TextInput, Button,TouchableOpacity} from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
 import Context, { initialState } from '../context/store'
+import styles from '../styles';
 
 
 
@@ -62,23 +63,29 @@ const Posts=props=>{
         <SafeAreaView style = {{flex:1}}>
         <View style = {{flex:1}}>
         <FlatList 
+            keyExtractor={(_, index) => index.toString()}
             data = {list}
             renderItem = {({item}) => <Text>{item}</Text>}
 
         />
-        <View>
-            <TextInput 
-            style = {{ borderRadius:5,padding:5,margin:5,backgroundColor:'grey'}}
+        <View style = {{alignItems:'center'}}>
+            <TextInput style = {styles.login.input}
+            
             onChangeText = {(text) => setData(text)}
             />
-            <Button 
-            title = "Gönder"
-            onPress={sendData}
-            />
-            <Button
-                title="Çıkış Yap"
-                onPress={signOut}
-            />
+            <View >
+                     <TouchableOpacity style = {styles.login.buttonContainer} onPress={sendData}>
+                        <Text style = {{color:"white",fontSize:18}}>Post IT!</Text>
+                    </TouchableOpacity> 
+
+                    <TouchableOpacity style = {styles.login.buttonContainer} onPress={signOut}>
+                        <Text style = {{color:"white",fontSize:12}}>Çıkış</Text>
+                    </TouchableOpacity> 
+
+                    
+
+            </View>
+            
         </View>
 
         </View>
