@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
 import {SafeAreaView,View,Text,FlatList,TextInput, Button} from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage';
 import auth from '@react-native-firebase/auth';
@@ -9,38 +9,44 @@ import Context, { initialState } from '../context/store'
 
 
 
+
 const Posts=props=>{
-     const user2 = initialState.user //storedan kullanıcı ismini alıp databasede başlık olarak kullanmaya çalışıyorum.
-    const user = auth().currentUser
+    //const user2 = initialState.user //storedan kullanıcı ismini alıp databasede başlık olarak kullanmaya çalışıyorum.
+    //const user = auth().currentUser
 
-
+    //const {state,dispatch} = useContext(Context) //Storedan user verisini alamadım sanarım hata yapıyorum.
     const [list,setList] = useState([])
     const [data,setData] = useState("")
-
+    
     useEffect(() => { //Veri görüntüleme
         database()
-            .ref(`/Posts`) 
-            .on('value',function(response){
-                let responseList = Object.values(response.val());
-                setList(responseList);
+            .ref(`/Posts/`) 
+            .on('value', snapshot => {
+                 let responseList = Object.values(snapshot.val())   
+                 setList(responseList)   
             })
-            // .once('value')
-            // .then(response => {
-            //     if (response.val() != null) {
-            //         let responseList = Object.values(response.val());
-            //         setList(responseList);
-            //     }
-            // })
+        
     }, [])
 
 
     const sendData = () => { //Veri kaydetme
-        let newArray = [...list]
-        newArray.push(data)
-        setList(newArray)
+        
 
-        database().ref(`/${user2}/`).push(data) //ref değerini değiştirerek database kayıt yerinde oynama yapabiliyoruz.
+            database().ref('/Posts').push(data) //Girilen psotu atıyor.Fakat hala kullanıcı ile atmayı çözemedim
+            
+
     }
+
+    async function retrieveItem(key) { //Async storage daki kulllanıcı ismini çekmeyi denedim.
+        try {
+          const retrievedItem =  await AsyncStorage.getItem(key);
+          const item = JSON.parse(retrievedItem);
+          return item;
+        } catch (error) {
+          console.log(error.message);
+        }
+        return
+      }
 
 
     const signOut = () => {

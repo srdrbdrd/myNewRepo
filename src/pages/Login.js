@@ -20,8 +20,9 @@ const Login=props=>{
             await auth().signInWithEmailAndPassword(usermail,password)
             const name   = usermail.substring(0, usermail.lastIndexOf("@")); //name adında bir değer atayıp mail öncesi değerini alarak store değerine kaydetmeyi denedim(Serdar)Oldu gibi inş
             dispatch({type:"SET_USER",userObj:name}) //üsttekinin devamı, eğer store değerine tanımlandıysa user verisini çekip kullanıcı ismini kullanabiliriz.
-            //console.warn(state.user) 
+            console.warn(state.user) 
             props.navigation.navigate("Main")
+            AsyncStorage.setItem('@USER_NAME',name) //Giriş yapan kullanıcı ismi
             AsyncStorage.setItem('@USER_ID', auth().currentUser.uid) //Async ile kullanıcı giriş id set etme.
             
             
@@ -30,6 +31,8 @@ const Login=props=>{
             Alert.alert("App","Bir hata oluştu.")
         }
     }
+
+    
    
    
     return(
