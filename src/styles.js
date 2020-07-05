@@ -26,6 +26,15 @@ const styles = {
             backgroundColor:"#004a00"
             
         }
+    }),
+    post: StyleSheet.create({
+        container:{
+            backgroundColor:'#c8e6c9',
+            margin:5,
+            padding:10,
+            borderRadius:10,
+            width:Dimensions.get('window').width/2
+        }
     })
 }
 

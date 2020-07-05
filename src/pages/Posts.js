@@ -5,11 +5,7 @@ import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
 import Context, { initialState } from '../context/store'
 import styles from '../styles';
-
-
-
-
-
+import {PostItem} from '../components'
 
 const Posts=props=>{
     //const user2 = initialState.user //storedan kullanıcı ismini alıp databasede başlık olarak kullanmaya çalışıyorum.
@@ -59,13 +55,21 @@ const Posts=props=>{
         props.navigation.navigate("Login")
     }
 
+    const renderPost=({item})=>{
+        return(
+            <PostItem
+            data={item}
+            />
+        )
+    }
+
     return(
         <SafeAreaView style = {{flex:1}}>
         <View style = {{flex:1}}>
         <FlatList 
             keyExtractor={(_, index) => index.toString()}
             data = {list}
-            renderItem = {({item}) => <Text>{item}</Text>}
+            renderItem = {renderPost}
 
         />
         <View style = {{alignItems:'center'}}>
