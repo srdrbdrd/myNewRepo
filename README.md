@@ -1,8 +1,4 @@
-# week-5-restaurant-app-eylem-gokdemir-serdar-bedir
-week-5-restaurant-app-eylem-gokdemir-serdar-bedir created by GitHub Classroom
-
-
-
+I used firebase realtime database to post tweets real time..
 **Adding users to the database and save posts are not enabled yet**
 
 **Photos of app**
